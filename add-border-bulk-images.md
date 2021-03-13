@@ -1,5 +1,5 @@
 Sub AddPictureBorders()<br>
-  Dim objShape As Shape<br>
+  &nbsp Dim objShape As Shape<br>
   Dim objInLineShape As InlineShape<br>
   Dim objDoc As Document<br>
  <br>
