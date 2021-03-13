@@ -22,4 +22,9 @@ Sub AddPictureBorders()
     Next
   End With
 End Sub
+
+
+Ref link : https://www.datanumen.com/blogs/3-quick-methods-add-borders-pictures-word-document/
+
+
 <pre>
