@@ -1,23 +1,23 @@
-Sub AddPictureBorders()
-  Dim objShape As Shape
-  Dim objInLineShape As InlineShape
-  Dim objDoc As Document
- 
-  Set objDoc = ActiveDocument
- 
-  With objDoc
-    For Each objInLineShape In .InlineShapes
-      With objInLineShape.Line
-        .Style = msoLineSingle
-        .ForeColor.RGB = RGB(0, 0, 0)
-      End With
-    Next
-    For Each objShape In .Shapes
-      objShape.Fill.Solid
-      With objShape.Line
-        .Style = msoLineSingle
-        .ForeColor.RGB = RGB(0, 0, 0)
-      End With
-    Next
-  End With
-End Sub
+Sub AddPictureBorders()<br>
+  Dim objShape As Shape<br>
+  Dim objInLineShape As InlineShape<br>
+  Dim objDoc As Document<br>
+ <br>
+  Set objDoc = ActiveDocument<br>
+ <br>
+  With objDoc<br>
+    For Each objInLineShape In .InlineShapes<br>
+      With objInLineShape.Line<br>
+        .Style = msoLineSingle<br>
+        .ForeColor.RGB = RGB(0, 0, 0)<br>
+      End With<br>
+    Next<br>
+    For Each objShape In .Shapes<br>
+      objShape.Fill.Solid<br>
+      With objShape.Line<br>
+        .Style = msoLineSingle<br>
+        .ForeColor.RGB = RGB(0, 0, 0)<br>
+      End With<br>
+    Next<br>
+  End With<br>
+End Sub<br>
