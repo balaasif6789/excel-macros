@@ -1,0 +1,27 @@
+<pre>
+Last occurrence of a character 
+
+Let's say for example you want the right-most \ in the following string (which is stored in cell A1):
+
+Drive:\Folder\SubFolder\Filename.ext
+
+To get the position of the last \, you would use this formula:
+=FIND("@",SUBSTITUTE(A1,"\","@",(LEN(A1)-LEN(SUBSTITUTE(A1,"\","")))/LEN("\")))
+That tells us the right-most \ is at character 24. It does this by looking for "@" and substituting the very last "\" with an "@". It determines the last one by using
+
+(len(string)-len(substitute(string, substring, "")))\len(substring)
+
+In this scenario, the substring is simply "\" which has a length of 1, so you could leave off the division at the end and just use:
+=FIND("@",SUBSTITUTE(A1,"\","@",LEN(A1)-LEN(SUBSTITUTE(A1,"\",""))))
+
+Now we can use that to get the folder path:
+=LEFT(A1,FIND("@",SUBSTITUTE(A1,"\","@",LEN(A1)-LEN(SUBSTITUTE(A1,"\","")))))
+
+Here's the folder path without the trailing \
+=LEFT(A1,FIND("@",SUBSTITUTE(A1,"\","@",LEN(A1)-LEN(SUBSTITUTE(A1,"\",""))))-1)
+And to get just the filename:
+
+=MID(A1,FIND("@",SUBSTITUTE(A1,"\","@",LEN(A1)-LEN(SUBSTITUTE(A1,"\",""))))+1,LEN(A1))
+However, here is an alternate version of getting everything to the right of the last instance of a specific character. So using our same example, this would also return the file name:
+
+=TRIM(RIGHT(SUBSTITUTE(A1,"\",REPT(" ",LEN(A1))),LEN(A1)))
