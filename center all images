@@ -1,0 +1,19 @@
+# Instead of center the same code can be used to align left or right by simply replacing the word "Center" with the Left/Right on line nos. 15
+
+Sub Center_All_Pictures()
+
+  Dim objInLineShape As InlineShape
+
+  Dim objDoc As Document
+
+  Set objDoc = ActiveDocument
+
+  For Each objInLineShape In objDoc.InlineShapes
+
+    objInLineShape.Select
+
+    Selection.ParagraphFormat.Alignment = wdAlignParagraphCenter
+
+  Next objInLineShape
+
+End Sub
